@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handing Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" rev="stylesheet" type="text/css" href="styles.css"  />
+</head>
+<body>
+<h1>Form</h1>
+<form class="mainform" action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+    <p class="name">
+        <input type="text" th:field="*{name}" name="name" value="Имя автора" onblur="if(this.value.length == 0) this.value = 'Имя автора'" onfocus="if(this.value == 'Имя автора') this.value = '' "/>
+        <label >Имя</label>
+    </p>
+
+    <p class="email">
+        <input type="text" th:field="*{email}" name="email" value="name@example.com" onblur="if(this.value.length == 0) this.value = 'name@example.com'" onfocus="if(this.value == 'name@example.com') this.value = '' " />
+        <label >E-Mail</label>
+    </p>
+    <p class="msg">
+        <textarea th:field="*{content}" name="content" onblur="if(this.value.length == 0) this.value = 'Текст сообщения'" onfocus="if(this.value == 'Текст сообщения') this.value=''">Текст сообщения</textarea>    </p>
+    <p class="send" >
+        <input  type="submit" value="Отправить"  />
+    </p>
+</form>
+
+</body>
+</html>
